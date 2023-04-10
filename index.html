@@ -1,0 +1,122 @@
+{% extends "Base.html" %}
+{% block content %}
+  <!--Estilos-->
+  <style>
+    th{
+      background-color:#454545;
+      color:#fff;
+      padding:15px 0px;
+      font-size: 1.1em;;
+      border:1px solid #454545;
+    }
+  </style>
+
+  <!--Javascript-->
+  <script>
+    function validateForm(){
+      var name = document.forms["add_contact"]["name"].value;
+      var user = document.forms["add_contact"]["user"].value;
+      var area = document.forms["add_contact"]["area"].value;
+      var addr = document.forms["add_contact"]["correo"].value;
+      var mensaje = " ";
+      //validacion
+        if (name == "") {
+          mensaje= mensaje + "\n- nombre";
+        }   
+        if (user == "") {
+          mensaje= mensaje + "\n- user";
+        }   
+        if (area == "") {
+          mensaje= mensaje + "\n- area";
+        }  
+        if (addr == "") {
+          mensaje= mensaje + "\n- correo";
+        }  
+        var cuerpo = mensaje;
+        if (mensaje =! " "){
+          alert("Falta ingresar: " + cuerpo);
+          return false;
+        }
+    }
+  </script>
+  <div style="width:100% !important;max-width:1700px; text-align: center; border:0px solid red;overflow: hidden;display:inline-table;vertical-align:top;border: 0px solid blue;">
+    <div style="width: 35%; display: inline-table; border:0px solid black;padding:0px 10px;" >
+      {% with messages = get_flashed_messages()  %}
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+      <!--Ingreso de datos-->
+      <div class="card card-body" style="width:100%;"> 
+        <form action="{{url_for('add_contact')}}" method="POST" name="add_contact" onsubmit="return validateForm()">
+          <div class="form-group">
+            <h2>Ingresar datos</h2>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="name" placeholder="name">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="user" placeholder="user">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="correo" placeholder="correo">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="area" placeholder="area">
+          </div>
+          <button class="btn btn-primary btn-block">
+            Save 
+          </button>
+        </form>
+      </div>
+    </div>
+  <br>
+    <!--Grilla datos / mostrar datos / cargad datos-->
+    <div style="width:100%;float:left;border:0px solid yellow;padding:0px 10px;margin-top: 20px;">
+      <table class="table table-striped table-hover table-bordered table-sm bg-white" style="width:100%;">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>user</th>
+            <th>correo</th>
+            <th>area</th>
+            <th>addr</th>
+            <th>os</th>
+            <th>hostname</th>
+            <th>Registro</th>
+            <th>Operations</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for contact in contacts %}
+          <tr>
+            <td>{{contact.0}}</td>
+            <td>{{contact.1}}</td>
+            <td>{{contact.2}}</td>
+            <td>{{contact.3}}</td>
+            <td>{{contact.4}}</td>
+            <td>{{contact.5}}</td>
+            <td>{{contact.6}}</td>
+            <td>{{contact.7}}</td>
+            <td>{{contact.8}}</td>
+            <td>
+              <a href="/edit/{{contact.0}}" class="btn btn-secondary">edit</a>
+              <a href="/delete/{{contact.0}}" class="btn btn-danger btn-delete">delete</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

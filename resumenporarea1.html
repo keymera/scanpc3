@@ -1,0 +1,52 @@
+{% extends "Base.html" %}
+{% block content %}
+  <!--Estilos-->
+  <style>
+    th{
+      background-color:#454545;
+      color:#fff;
+      padding:15px 0px;
+      font-size: 1.1em;;
+      border:1px solid #454545;
+    }
+  </style>
+  <div style="width:100% !important;max-width:1700px; text-align: center; border:0px solid red;overflow: hidden;display:inline-table;vertical-align:top;border: 0px solid blue;">
+      <div style="width: 35%; display: inline-table; border:0px solid black;padding:0px 10px;" >
+        {% with messages = get_flashed_messages()  %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+      </div>
+    <center>
+    <br>
+      <!--Grilla datos / mostrar datos / cargad datos-->
+        <div style="width:50%;float:left;border:0px solid yellow;padding:0px 10px;margin-top: 20px;">
+          <table class="table table-striped table-hover table-bordered table-sm bg-white" style="width:50%;">
+            <thead>
+              <tr>
+                <th>cantidad</th>
+                <th>area</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for contact in contacts %}
+              <tr>
+                <td>{{contact.0}}</td>
+
+                <td>{{contact.1}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+    </center>
+  </div>
+{% endblock %}

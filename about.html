@@ -1,0 +1,78 @@
+
+{% extends "Base.html" %}
+
+{% block content %}
+  
+
+  
+    <div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="title">Desarrollo web</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-9 ">
+          <div class="row">
+            <div class="col-12">
+              <img src="{{ url_for('static', filename='img/imagen1.jpg')}}" alt="" width="600" height="250">
+            </div><br>
+            <div class="col-12 col-md-6">
+              <h2>ScanPC</h2>
+              <p>el estado de tu pc y algunos componentes importantes que tiene es una de nuestras
+                mayores preocupaciones por lo cual te presentamos ______.
+              </p>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <h2> Solucion para empresas</h2>
+              <p>
+                Esta pagina se preocuoa de aydar en latarea de invetarioado de equipos computacionales tales
+                como computadores personales, equipos de impresion o cualquier equipo que se encuentre
+                en una empresa.
+              </p>
+            </div>
+
+            <!--<div class="col-12 col-md-6">
+              <h2>Título noticia</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos excepturi dicta suscipit illum,
+                reiciendis cupiditate pariatur nisi rerum aspernatur repellat adipisci debitis delectus, consequuntur,
+                sint asperiores ipsam iste eos. Similique?</p>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <h2>Título noticia</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos excepturi dicta suscipit illum,
+                reiciendis cupiditate pariatur nisi rerum aspernatur repellat adipisci debitis delectus, consequuntur,
+                sint asperiores ipsam iste eos. Similique?</p>
+            </div>-->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous">
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous">
+    </script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous">
+    </script>
+{% endblock %}

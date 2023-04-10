@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ScanPc</title>
+    <!--bootstrap4-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!--Customcss-->
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/main.css') }}">
+    <style>
+      *{
+        box-sizing: border-box;
+        margin:0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body><body style="margin:0px !important;">
+    <!--cabezera-->
+       
+    
+    <header style="overflow: hidden;background-color: #f8f9fa;">
+       <!-- Button to open the modal login form -->
+       <a style="color:#fff;background-color: #343a40;padding: 0px 10px;float:left;width:10%;line-height:56px;" class="navbar-brand" href="/" >ScanPC</a>
+       <nav class="navbar navbar-expand-lg navbar-light bg-light" style="float: right;;width:85%">
+        <button onclick="document.getElementById('id01').style.display='block'" style="float: right;" wfd-id="20" class="btn btn-primary">Login</button>
+       
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/about">About<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/inventario">Inventario</a>
+            </li>
+            
+            <li class="nav-item active">
+              <a class="nav-link" href="/resumen">resumen</a>
+            </li>
+            
+            <li class="nav-item active">
+              <a class="nav-link" href="/Busqueda">busqueda</a>
+            </li>
+          </ul>
+        </div>
+    
+      </nav>
+  
+    </header>
+  
+    <!--Cuerpo-->
+    <section>
+      {% block body %}
+      {% endblock %}
+    </div>
+<!--modal-->
+<div class="col-lg-3  d-none d-lg-block">
+  <div class="row">
+   
+    <!-- The Modal -->
+    <div id="id01" class="modal" style=width:100%;>
+      <span onclick="document.getElementById('id01').style.display='none'" class="close"
+        title="Close Modal">&times;</span>
+
+      <!-- Modal Content -->
+      <form class="modal-content animate" action="/action_page.php" style="max-width:700px;">
+        <div class="imgcontainer">
+          <img src="img1.jpg" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="container" style="width:100%;text-align: left;">
+          <label for="uname"><b>Usuario</b></label>
+          <input type="text" placeholder="Enter Username" name="uname" required>
+          <br>
+          
+          <label for="psw"><b>Contraseña</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+          <div style="text-align: center;">
+            
+            <br>
+            <button type="submit" class="btn btn-info">Login</button>
+            <br>
+            <label>
+              <input type="checkbox" checked="checked" name="remember" > Remember me
+            </label>
+            </div>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1; padding: 10px 0px;">
+          <button type="button" onclick="document.getElementById('id01').style.display='none'"
+          class="btn btn-secondary">Cancel</button>
+          <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- piede pagina -->
+<table width="100%" id="footer" align="center" bgcolor="#232521">
+  <td><hr width="1024px" size="0">
+  <a style="text-decoration: none;" href="" title="">Leonardo Muños - UNAB 2019 SANTIAGO • CHILE<br>
+  Proyecto de Titulo</a><br><br>
+  <td>
+  </table>
+  <!--fin pie de pagina  -->
+
+  <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js')}}">
+    // Get the modal
+    var modal = document.getElementById('id01');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+  
+
+</body>
+</html>
